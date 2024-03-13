@@ -1,0 +1,1 @@
+CREATE TABLE tbcharacters (     name VARCHAR(255) PRIMARY KEY,     type VARCHAR(50),     health INT,     attack_power INT,     defense_power INT,     army VARCHAR(255) );
