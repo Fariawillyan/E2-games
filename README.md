@@ -6,6 +6,8 @@ The idea of ​​the project is to create an online turn-based game and war rep
 * Java for Back-end: We use Java to build the server logic, data manipulation and interaction with the database.
   - Springboot 3.2+
   - jdbc client
+  
+* Database mysql:8.3
 
 * Angular for Front-end: Angular is the tool of choice for building an interactive and responsive user interface, providing a modern and efficient user experience.
 
