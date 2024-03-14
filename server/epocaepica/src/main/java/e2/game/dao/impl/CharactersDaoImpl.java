@@ -16,11 +16,11 @@ public class CharactersDaoImpl implements CharactersDao {
     JdbcClient jdbcClient;
 
     @Override
-    public Optional<String> existNameActiveDao(Object name) {
+    public Optional<Characters> loadCharacterDao(String name) {
         return jdbcClient
-                .sql("SELECT 1 from tbcharacters where name = :name ")
+                .sql("SELECT * from tbcharacters ch where ch.name = :name ")
                 .param("name", name)
-                .query(String.class)
+                .query(Characters.class)
                 .optional();
     }
 
@@ -31,4 +31,6 @@ public class CharactersDaoImpl implements CharactersDao {
                 .params(List.of(characters.type(), characters.name(), characters.health(), characters.attackPower(), characters.defensePower(), characters.army()))
                 .update() > 0;
     }
+
+
 }

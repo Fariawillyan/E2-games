@@ -9,17 +9,20 @@ import java.util.Optional;
 
 
 @Service
-public class CharactersService<T> {
+public class CharactersService {
 
     @Autowired(required = false)
     CharactersDao charactersDao;
 
-    public Optional<String> existNameActive(String name) {
-        return charactersDao.existNameActiveDao(name);
+
+    public Optional<Characters> loadCharacterService(String name) {
+        return charactersDao.loadCharacterDao(name);
     }
 
     public boolean createClass(Characters characters){
         return charactersDao.createClass(characters);
     }
+
+
 }
 

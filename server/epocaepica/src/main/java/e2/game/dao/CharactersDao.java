@@ -9,7 +9,8 @@ import java.util.Optional;
 @Repository
 public interface CharactersDao {
 
-    Optional<String> existNameActiveDao(Object name);
+
+    Optional<Characters> loadCharacterDao(String name);
 
     boolean createClass(Characters characters);
 }
