@@ -13,6 +13,11 @@ public class PainelWarProducerService {
 
 
     public boolean sendBatteWarService(PainelWarProducer painelWarProducer) {
+
+
+
+
+
         return iPainelWarProducer.sendWarProducerDao(painelWarProducer);
 
     }
