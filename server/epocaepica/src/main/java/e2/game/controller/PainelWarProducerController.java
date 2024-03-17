@@ -6,7 +6,6 @@ import e2.game.entity.PainelWarProducer;
 import e2.game.exception.CustomException;
 import e2.game.service.PainelWarProducerService;
 import lombok.extern.log4j.Log4j2;
-import org.slf4j.LoggerFactory;
 import org.springframework.amqp.AmqpException;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.logging.Logger;
 
 @RestController
 @RequestMapping("api/painel-war")
@@ -43,9 +41,9 @@ public class PainelWarProducerController {
             throw new RuntimeException(e);
         }
 
-        final boolean battleSendDb = painelWarProducerService.sendBatteWarService(painelWarProducer);
+        final boolean isBattleSendDb = painelWarProducerService.isSendBatteWarService(painelWarProducer);
 
-        return battleSendDb ?
+        return isBattleSendDb ?
                 ResponseEntity.status(HttpStatus.OK).body("WAR IN PROGRESS! ") :
                 ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new CustomException("Failed WAR"));
     }
