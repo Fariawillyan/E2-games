@@ -35,7 +35,7 @@ public class CharacterController {
                 bonusCharacter(new ZombieServiceImpl());
             }
 
-            return charactersService.createClass(characters) ? ResponseEntity.status(HttpStatus.CREATED).body("Character created with success! ") :
+            return charactersService.isCreateClassService(characters) ? ResponseEntity.status(HttpStatus.CREATED).body("Character created with success! ") :
                     ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new CustomException("Failed to create player"));
 
         } catch (Exception e) {

@@ -19,8 +19,8 @@ public class CharactersService {
         return charactersDao.loadCharacterDao(name);
     }
 
-    public boolean createClass(Characters characters){
-        return charactersDao.createClass(characters);
+    public boolean isCreateClassService(Characters characters){
+        return charactersDao.isCreateClassDao(characters);
     }
 
 

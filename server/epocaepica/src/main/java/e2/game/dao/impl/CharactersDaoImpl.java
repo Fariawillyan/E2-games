@@ -25,7 +25,7 @@ public class CharactersDaoImpl implements CharactersDao {
     }
 
     @Override
-    public boolean createClass(Characters characters) {
+    public boolean isCreateClassDao(Characters characters) {
         String table = "tbcharacters";
         return jdbcClient.sql("INSERT INTO " + table + "(type, name, health, attack_power, defense_power, army) values(?, ?, ?, ?, ?, ?)")
                 .params(List.of(characters.type(), characters.name(), characters.health(), characters.attackPower(), characters.defensePower(), characters.army()))

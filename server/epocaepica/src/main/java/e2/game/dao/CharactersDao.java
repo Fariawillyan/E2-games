@@ -12,5 +12,5 @@ public interface CharactersDao {
 
     Optional<Characters> loadCharacterDao(String name);
 
-    boolean createClass(Characters characters);
+    boolean isCreateClassDao(Characters characters);
 }
