@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 public interface IPainelWarProducer {
 
 
-    boolean sendWarProducerDao(PainelWarProducer painelWarProducer);
+    boolean isSendWarProducerDao(PainelWarProducer painelWarProducer);
 
 
 }

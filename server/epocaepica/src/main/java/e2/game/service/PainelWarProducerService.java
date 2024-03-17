@@ -11,14 +11,9 @@ public class PainelWarProducerService {
     @Autowired
     IPainelWarProducer iPainelWarProducer;
 
+    public boolean isSendBatteWarService(PainelWarProducer painelWarProducer) {
 
-    public boolean sendBatteWarService(PainelWarProducer painelWarProducer) {
-
-
-
-
-
-        return iPainelWarProducer.sendWarProducerDao(painelWarProducer);
+        return iPainelWarProducer.isSendWarProducerDao(painelWarProducer);
 
     }
 }

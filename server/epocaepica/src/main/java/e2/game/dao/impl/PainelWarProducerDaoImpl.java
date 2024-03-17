@@ -16,7 +16,7 @@ public class PainelWarProducerDaoImpl implements IPainelWarProducer {
     JdbcClient jdbcClient;
 
     @Override
-    public boolean sendWarProducerDao(PainelWarProducer painelWarProducer) {
+    public boolean isSendWarProducerDao(PainelWarProducer painelWarProducer) {
         String table = "tbwartransactionattack";
         return jdbcClient.sql("INSERT INTO " + table + "(name_attack, type, health, attack_power, defense_power, army, name_defense) values(?, ?, ?, ?, ?, ?, ?)")
                 .params(
