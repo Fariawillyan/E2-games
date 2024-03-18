@@ -20,21 +20,15 @@ public class PainelWarConsumer {
     private void consumer(String json) throws JsonProcessingException {
 
         ObjectMapper objectMapper = new ObjectMapper();
-
         EntityAttacker entityAttacker = objectMapper.readValue(json, EntityAttacker.class);
 
+        log.info( "-------------------------------- INICIALIZE A NEW BATTLE ---------------------------------- " + entityAttacker);
         log.info( "MESSAGE IN CONSUMER : " + entityAttacker);
 
         try{
-
             motorBattle.calculate(entityAttacker);
-
         }catch (Exception e){
             log.info("UNPROCESSED BATTLE FOR ATTACKING", e);
         }
-
     }
-
-
-
 }
