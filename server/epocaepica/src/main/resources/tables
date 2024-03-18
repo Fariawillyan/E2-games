@@ -1,9 +1,17 @@
-CREATE TABLE tbcharacters (     name VARCHAR(255) PRIMARY KEY,     type VARCHAR(50),     health INT,     attack_power INT,     defense_power INT,     army VARCHAR(255) );
+CREATE TABLE tbcharacters (
+    name VARCHAR(255) PRIMARY KEY,
+    type VARCHAR(50),
+    health INT,
+    attack_power INT,
+    defense_power INT,
+    army VARCHAR(255),
+    defeat INT DEFAULT 0,
+    victory INT DEFAULT 0);
 
 
 CREATE TABLE tbwartransactionattack (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    name_attack VARCHAR(255),
+    name_attack VARCHAR(255) ,
     type VARCHAR(50),
     health INT,
     attack_power INT,
@@ -12,9 +20,9 @@ CREATE TABLE tbwartransactionattack (
     name_defense VARCHAR(255));
 );
 
-CREATE TABLE warresult (
+CREATE TABLE tbwarresult (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    transaction_id INT,
-    winner INT,
-    FOREIGN KEY (transaction_id) REFERENCES WarTransaction(id)
+    name_attack varchar(255),
+    name_defense varchar(255),
+    winner varchar(255)
 );
