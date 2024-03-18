@@ -27,7 +27,7 @@ public class MotorBattle {
         final int result = getResultAttack(entityAttacker, entityDefender);
         entityDefender.setHealth(entityDefender.getHealth() - result);
         final String nameDefender = entityDefender.getNameDefender();
-        String winner = null;
+        String winner;
 
         if (entityDefender.getHealth() <= 0) {
 
