@@ -50,8 +50,7 @@ public class MotorBattle {
     }
 
     private static int getResultAttack(EntityAttacker entityAttacker, EntityDefender entityDefender) {
-        int result = Math.max(0, entityAttacker.getAttackPower()) - entityDefender.getDefensePower();
-        return result;
+        return Math.max(0, entityAttacker.getAttackPower()) - entityDefender.getDefensePower();
     }
 
     private EntityDefender loadDefenderPlayer(String nameDefender) {
