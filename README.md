@@ -3,16 +3,21 @@
 The idea of ​​the project is to create an online turn-based game and war reporting in the browser.
 
 ### Starting Tools:
-* Java for Back-end: We use Java to build the server logic, data manipulation and interaction with the database.
+* Back-end:
+  - We use Java to build the server logic, data manipulation and interaction with the database.
   - Springboot 3.2+
-  - rabbitmq3:-management
   - jdbc client
+
+* Motor : We use Java to create a Battle Report Engine: This engine will be especially highlighted for its ability to process battle events using the queuing process, ensuring a fluid and efficient workflow.
+
+* Message Broker:
+  - Rabbit:3-management to send battle between server and motor.
   
-* Database mysql:8.3
+* Database:
+   mysql:8.3
 
-* Angular for Front-end: Angular is the tool of choice for building an interactive and responsive user interface, providing a modern and efficient user experience.
-
-* Java Motor for Battle Report Engine: This engine will be especially highlighted for its ability to process battle events using the queuing process, ensuring a fluid and efficient workflow.
+* Front-end:
+  - We use Angular to building an interactive and responsive user interface, providing a modern and efficient user experience.
 
 ## How to Contribute:
 
