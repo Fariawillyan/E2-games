@@ -1,0 +1,31 @@
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #1a3aa1;
+  color: #fff;
+  padding: 10px 0; /* Adapte o padding conforme necessário */
+  transition: all 0.3s ease; /* Adiciona uma transição suave */
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .copyright,
+  .version-links {
+    display: flex;
+    align-items: center;
+  }
+
+  .version {
+    margin-right: 20px;
+  }
+}
+
+/* Adicione uma classe para ajustar o estilo quando o rodapé for rolado */
+footer.scrolled {
+  background-color: #333; /* Altere a cor de fundo quando rolado, se desejar */
+}

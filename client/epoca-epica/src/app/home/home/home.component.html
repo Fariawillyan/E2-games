@@ -1,0 +1,185 @@
+
+<mat-toolbar class="toolbar">
+
+    <button mat-button class="toolbarBotton">
+      <mat-icon>monetization_on</mat-icon>
+      <span class="label">Gold: <span class="quantity">{{ gold }}</span></span>
+    </button>
+
+    <button mat-button class="toolbarBotton" >
+      <mat-icon>local_florist</mat-icon>
+      <span class="label">Gold: <span class="quantity">{{ wood }}</span></span>
+    </button>
+
+    <button mat-button class="toolbarBotton" >
+      <mat-icon>terrain</mat-icon>
+      <span class="label">Stone: <span class="quantity">{{stone}}</span></span>
+    </button>
+
+    <button mat-button class="toolbarBotton" >
+      <mat-icon>restaurant</mat-icon>
+      <span class="label">Food: <span class="quantity">{{food}}</span></span>
+    </button>
+
+    <button mat-button class="toolbarBotton" >
+      <mat-icon>build</mat-icon>
+      <span class="label">Iron: <span class="quantity">{{iron}}</span></span>
+    </button>
+
+</mat-toolbar>
+
+
+<div class="dashborddad">
+
+  <div class="dashboard">
+    <div class="header">
+      <h1>Quadro de Comando - Gerenciamento de Guerras</h1>
+    </div>
+    <div class="content">
+      <div class="button-row">
+        <button class="button mission" (click)="openMissions()">
+          <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/mission-1957554-1658827.png" alt="Missões">
+          Missões
+        </button>
+        <button class="button resources" (click)="openResources()">
+          <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/resources-3-1313618.png" alt="Recursos">
+          Espólios
+        </button>
+        <button class="button reports" (click)="openReports()">
+          <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/reports-6-260781.png" alt="Relatórios">
+          Relatórios
+        </button>
+      </div>
+      <div class="button-row">
+        <button class="button strategies" (click)="openStrategies()">
+          <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/strategy-2026773-1713098.png" alt="Estratégias">
+          Estratégias
+        </button>
+        <button class="button map" (click)="openMap()">
+          <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/world-map-270-865822.png" alt="Mapa">
+          Arsenal
+        </button>
+        <button class="button settings" (click)="openSettings()">
+          <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/settings-398-1459033.png" alt="Configurações">
+          Capitulação
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="dashboard">
+    <div class="header">
+      <h1>Quadro de Economia - Gerenciamento Econômico</h1>
+    </div>
+    <div class="content">
+      <div class="button-row">
+        <button class="button mission" (click)="openMissions()">
+          <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/marketplace-2264058-1891341.png" alt="Mercado">
+          Mercado
+        </button>
+        <button class="button resources" (click)="openResources()">
+          <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/resources-3-1313618.png" alt="Recursos">
+          Recursos
+        </button>
+        <button class="button reports" (click)="openReports()">
+          <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/reports-6-260781.png" alt="Relatórios">
+          Relatórios
+        </button>
+      </div>
+      <div class="button-row">
+        <button class="button strategies" (click)="openStrategies()">
+          <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/strategy-2026773-1713098.png" alt="Estratégias">
+          Ajuda
+        </button>
+        <button class="button map" (click)="openMap()">
+          <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/world-map-270-865822.png" alt="Mapa">
+          Comprar
+        </button>
+        <button class="button settings" (click)="openSettings()">
+          <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/settings-398-1459033.png" alt="Configurações">
+          Vender
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="dashboard">
+    <div class="header">
+      <h1>Quadro de Perfil - Gerenciamento da Raça</h1>
+    </div>
+    <div class="content">
+      <div class="button-row">
+        <button class="button mission" (click)="openMissions()">
+          <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/mission-1957554-1658827.png" alt="Missões">
+          Raça
+        </button>
+        <button class="button resources" (click)="openResources()">
+          <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/resources-3-1313618.png" alt="Recursos">
+          Construção
+        </button>
+        <button class="button reports" (click)="openReports()">
+          <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/reports-6-260781.png" alt="Relatórios">
+          Relatórios
+        </button>
+      </div>
+      <div class="button-row">
+        <button class="button strategies" (click)="openStrategies()">
+          <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/strategy-2026773-1713098.png" alt="Estratégias">
+          Estratégias
+        </button>
+        <button class="button map" (click)="openMap()">
+          <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/world-map-270-865822.png" alt="Mapa">
+          Mapa
+        </button>
+        <button class="button settings" (click)="openSettings()">
+          <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/settings-398-1459033.png" alt="Configurações">
+          Configurações
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="dashboard">
+    <div class="header">
+      <h1>Quadro Exterior - Gerenciamento de Contato</h1>
+    </div>
+    <div class="content">
+      <div class="button-row">
+        <button class="button mission" (click)="openMissions()">
+          <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/mission-1957554-1658827.png" alt="Missões">
+          Contato
+        </button>
+        <button class="button resources" (click)="openResources()">
+          <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/resources-3-1313618.png" alt="Recursos">
+          Guildas
+        </button>
+        <button class="button reports" (click)="openReports()">
+          <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/reports-6-260781.png" alt="Relatórios">
+          Relatórios
+        </button>
+      </div>
+      <div class="button-row">
+        <button class="button strategies" (click)="openStrategies()">
+          <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/strategy-2026773-1713098.png" alt="Estratégias">
+          Amigos
+        </button>
+        <button class="button map" (click)="openMap()">
+          <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/world-map-270-865822.png" alt="Mapa">
+          Chat
+        </button>
+        <button class="button settings" (click)="openSettings()">
+          <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/settings-398-1459033.png" alt="Configurações">
+          Outros
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<app-footer>
+  <div class="content">
+    <p>Conteúdo da página</p>
+  </div>
+</app-footer>
