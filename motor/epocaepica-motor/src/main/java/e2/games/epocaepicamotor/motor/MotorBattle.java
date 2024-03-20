@@ -5,6 +5,9 @@ import e2.games.epocaepicamotor.dao.PainelWarDao;
 import e2.games.epocaepicamotor.entity.EntityAttacker;
 import e2.games.epocaepicamotor.entity.EntityDefender;
 import e2.games.epocaepicamotor.exception.CustomException;
+import e2.games.epocaepicamotor.motor.result.IResultBattle;
+import e2.games.epocaepicamotor.motor.result.ResultOfDefeatImpl;
+import e2.games.epocaepicamotor.motor.result.ResultOfVictoryImpl;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +23,9 @@ public class MotorBattle {
         final String nameAttack = entityAttacker.getNameAttack();
 
         EntityDefender entityDefender = loadDefenderPlayer(entityAttacker.getNameDefense());
+
         entityDefender.setNameDefender(entityAttacker.getNameDefense());
+        entityDefender.setNameAttack(entityAttacker.getNameAttack());
 
         log.info("MESSAGE IN DB DEFENDER : " + entityDefender);
 
@@ -31,18 +36,26 @@ public class MotorBattle {
 
         if (entityDefender.getHealth() <= 0) {
 
+            updateVictory(nameAttack);
+            updateDefeat(nameDefender);
+
+            ResultOfVictoryImpl rv = new ResultOfVictoryImpl();
+            lootGenerator(rv, entityDefender, entityAttacker);
+
+            winner = nameAttack;
             log.info("*************** RESULT BATTLE : " + " THE " + nameAttack + " IS VICTORY **************************");
 
-            updateVictory(nameAttack);
-            updateDefeated(nameDefender);
-            winner = nameAttack;
         } else {
 
-            log.info("*************** RESULT BATTLE : " + " THE " + nameAttack + " IS DEFEATED **************************");
-
             updateVictory(nameDefender);
-            updateDefeated(nameAttack);
+            updateDefeat(nameAttack);
+
+            ResultOfDefeatImpl rd = new ResultOfDefeatImpl();
+
+            lootGenerator(rd, entityDefender, entityAttacker);
+
             winner = nameDefender;
+            log.info("*************** RESULT BATTLE : " + " THE " + nameAttack + " IS DEFEAT **************************");
         }
 
         createWarTransaction(entityAttacker);
@@ -76,9 +89,15 @@ public class MotorBattle {
         painelWarDao.updateCharactersWhenVictoryDao(victory);
     }
 
-    private void updateDefeated(String defeated) {
+    private void updateDefeat(String defeated) {
         painelWarDao.updateCharactersWhenDefeatedDao(defeated);
     }
+
+    private static void lootGenerator(IResultBattle iResultBattle, EntityDefender entityDefender, EntityAttacker entityAttacker){
+        iResultBattle.bootyOfWarResult(entityDefender, entityAttacker);
+    }
+
+
 }
 
 
