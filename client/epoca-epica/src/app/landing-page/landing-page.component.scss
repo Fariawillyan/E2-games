@@ -1,0 +1,65 @@
+/* landing-page.component.css */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Isso garante que o conteúdo ocupe pelo menos a altura da janela */
+  position: relative; /* Necessário para o posicionamento absoluto do rodapé */
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+}
+
+header h1 {
+  margin: 0;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.hero {
+  background-image: url('/assets/background.png');
+  background-size: cover;
+  color: #fff;
+  text-align: center;
+  padding: 350px 0px;
+  flex: 1; /* Ocupa o espaço restante */
+  position: relative; /* Necessário para o posicionamento absoluto do rodapé */
+}
+
+.hero h2 {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  flex-shrink: 0; /* Evita que o rodapé seja redimensionado */
+  position: absolute; /* Posicionamento absoluto */
+  bottom: 0; /* Alinha o rodapé na parte inferior */
+  width: 100%; /* Ocupa toda a largura */
+}
