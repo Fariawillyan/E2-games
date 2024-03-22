@@ -4,6 +4,7 @@ package e2.games.epocaepicamotor.motor;
 import e2.games.epocaepicamotor.dao.PainelWarDao;
 import e2.games.epocaepicamotor.entity.EntityAttacker;
 import e2.games.epocaepicamotor.entity.EntityDefender;
+import e2.games.epocaepicamotor.entity.enun.FlagResultBattle;
 import e2.games.epocaepicamotor.exception.CustomException;
 import e2.games.epocaepicamotor.motor.result.IResultBattle;
 import e2.games.epocaepicamotor.motor.result.ResultOfDefeatImpl;
@@ -19,6 +20,9 @@ public class MotorBattle {
     @Autowired
     PainelWarDao painelWarDao;
 
+    @Autowired
+    ResultOfVictoryImpl rv;
+
     public void calculate(EntityAttacker entityAttacker) {
         final String nameAttack = entityAttacker.getNameAttack();
 
@@ -27,20 +31,23 @@ public class MotorBattle {
         entityDefender.setNameDefender(entityAttacker.getNameDefense());
         entityDefender.setNameAttack(entityAttacker.getNameAttack());
 
-        log.info("MESSAGE IN DB DEFENDER : " + entityDefender);
+        log.info("MESSAGE IN ATTACK : " + entityAttacker);
+        log.info("DEFENSE IN DB DEFENDER : " + entityDefender);
 
         final int result = getResultAttack(entityAttacker, entityDefender);
         entityDefender.setHealth(entityDefender.getHealth() - result);
         final String nameDefender = entityDefender.getNameDefender();
         String winner;
+        String flag;
 
         if (entityDefender.getHealth() <= 0) {
 
             updateVictory(nameAttack);
             updateDefeat(nameDefender);
 
-            ResultOfVictoryImpl rv = new ResultOfVictoryImpl();
-            lootGenerator(rv, entityDefender, entityAttacker);
+            flag = FlagResultBattle.W.getFlag();
+
+            lootGenerator(rv, entityDefender, entityAttacker, flag);
 
             winner = nameAttack;
             log.info("*************** RESULT BATTLE : " + " THE " + nameAttack + " IS VICTORY **************************");
@@ -50,12 +57,15 @@ public class MotorBattle {
             updateVictory(nameDefender);
             updateDefeat(nameAttack);
 
+            flag = FlagResultBattle.L.getFlag();
+
             ResultOfDefeatImpl rd = new ResultOfDefeatImpl();
 
-            lootGenerator(rd, entityDefender, entityAttacker);
-
             winner = nameDefender;
-            log.info("*************** RESULT BATTLE : " + " THE " + nameAttack + " IS DEFEAT **************************");
+
+            lootGenerator(rd, entityDefender, entityAttacker, flag);
+
+            log.info("############### RESULT BATTLE : " + " THE " + nameAttack + " IS DEFEAT ######################");
         }
 
         createWarTransaction(entityAttacker);
@@ -93,8 +103,8 @@ public class MotorBattle {
         painelWarDao.updateCharactersWhenDefeatedDao(defeated);
     }
 
-    private static void lootGenerator(IResultBattle iResultBattle, EntityDefender entityDefender, EntityAttacker entityAttacker){
-        iResultBattle.bootyOfWarResult(entityDefender, entityAttacker);
+    private static void lootGenerator(IResultBattle iResultBattle, EntityDefender entityDefender, EntityAttacker entityAttacker, String flag){
+        iResultBattle.lootOfWarResult(entityDefender, entityAttacker, flag);
     }
 
 

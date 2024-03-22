@@ -26,3 +26,17 @@ CREATE TABLE tbwarresult (
     name_defense varchar(255),
     winner varchar(255)
 );
+
+CREATE TABLE lootwar (
+    name VARCHAR(255) PRIMARY KEY,
+    jewelOfSoul INT NOT NULL DEFAULT 0,
+    jewelOfBless INT NOT NULL DEFAULT 0,
+    gold INT NOT NULL DEFAULT 0,
+    silver INT NOT NULL DEFAULT 0,
+    bronze INT NOT NULL DEFAULT 0,
+    wood INT NOT NULL DEFAULT 0,
+    stone INT NOT NULL DEFAULT 0,
+    iron INT NOT NULL DEFAULT 0,
+    metal INT NOT NULL DEFAULT 0,
+    ore INT NOT NULL DEFAULT 0
+);

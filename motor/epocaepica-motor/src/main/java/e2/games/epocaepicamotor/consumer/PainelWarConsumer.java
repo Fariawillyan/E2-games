@@ -22,8 +22,7 @@ public class PainelWarConsumer {
         ObjectMapper objectMapper = new ObjectMapper();
         EntityAttacker entityAttacker = objectMapper.readValue(json, EntityAttacker.class);
 
-        log.info( "-------------------------------- INICIALIZE A NEW BATTLE ---------------------------------- " + entityAttacker);
-        log.info( "MESSAGE IN CONSUMER : " + entityAttacker);
+        log.info( "-------------------------------- INICIALIZE A NEW BATTLE ---------------------------------- ");
 
         try{
             motorBattle.calculate(entityAttacker);
