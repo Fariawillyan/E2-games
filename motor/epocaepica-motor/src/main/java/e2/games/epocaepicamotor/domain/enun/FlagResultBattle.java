@@ -1,4 +1,4 @@
-package e2.games.epocaepicamotor.entity.enun;
+package e2.games.epocaepicamotor.domain.enun;
 
 public enum FlagResultBattle {
 

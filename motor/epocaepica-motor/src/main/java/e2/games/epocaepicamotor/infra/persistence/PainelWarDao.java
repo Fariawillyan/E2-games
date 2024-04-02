@@ -1,27 +1,25 @@
-package e2.games.epocaepicamotor.dao;
+package e2.games.epocaepicamotor.infra.persistence;
 
-import e2.games.epocaepicamotor.entity.EntityAttacker;
-import e2.games.epocaepicamotor.entity.EntityDefender;
-import e2.games.epocaepicamotor.entity.EntityLootWar;
-import org.springframework.beans.factory.annotation.Autowired;
+import e2.games.epocaepicamotor.domain.EntitiesAttacker;
+import e2.games.epocaepicamotor.domain.EntitiesDefender;
 import org.springframework.jdbc.core.simple.JdbcClient;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
-@Repository
 public class PainelWarDao {
 
-    @Autowired
-    JdbcClient jdbcClient;
+    private final JdbcClient jdbcClient;
 
-    public Optional<EntityDefender> loadCharacterDao(String nameDefense) {
+    public PainelWarDao(JdbcClient jdbcClient) {
+        this.jdbcClient = jdbcClient;
+    }
+
+    public Optional<EntitiesDefender> loadCharacterDao(String nameDefense) {
         return jdbcClient
                 .sql("SELECT * from tbcharacters ch where ch.name = :name ")
                 .param("name", nameDefense)
-                .query(EntityDefender.class)
+                .query(EntitiesDefender.class)
                 .optional();
     }
 
@@ -40,16 +38,16 @@ public class PainelWarDao {
                 .update();
     }
 
-    public void createWarTransactionDao(EntityAttacker EntityAttacker) {
+    public void createWarTransactionDao(EntitiesAttacker EntitiesAttacker) {
         String table = "tbwartransactionattack";
         jdbcClient.sql("INSERT INTO " + table + "(type, name_attack, health, attack_power, defense_power, army, name_defense) values(?, ?, ?, ?, ?, ?, ?)")
-                .params(List.of(EntityAttacker.getType(),
-                        EntityAttacker.getNameAttack(),
-                        EntityAttacker.getHealth(),
-                        EntityAttacker.getAttackPower(),
-                        EntityAttacker.getDefensePower(),
-                        EntityAttacker.getArmy(),
-                        EntityAttacker.getNameDefense()))
+                .params(List.of(EntitiesAttacker.getType(),
+                        EntitiesAttacker.getNameAttack(),
+                        EntitiesAttacker.getHealth(),
+                        EntitiesAttacker.getAttackPower(),
+                        EntitiesAttacker.getDefensePower(),
+                        EntitiesAttacker.getArmy(),
+                        EntitiesAttacker.getNameDefense()))
                 .update();
     }
 

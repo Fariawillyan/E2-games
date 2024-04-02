@@ -1,28 +1,27 @@
-package e2.games.epocaepicamotor.dao;
+package e2.games.epocaepicamotor.infra.persistence;
 
-import e2.games.epocaepicamotor.entity.EntityLootWar;
-import org.springframework.beans.factory.annotation.Autowired;
+import e2.games.epocaepicamotor.domain.VoLootWar;
 import org.springframework.jdbc.core.simple.JdbcClient;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-@Repository
 public class LootWarDao {
 
-    @Autowired
-    JdbcClient jdbcClient;
+    private final JdbcClient jdbcClient;
 
-    public Optional<EntityLootWar> loadLootDao(String nameDefense) {
+    public LootWarDao(JdbcClient jdbcClient) {
+        this.jdbcClient = jdbcClient;
+    }
+
+    public Optional<VoLootWar> loadLootDao(String nameDefense) {
         return jdbcClient
                 .sql("SELECT * from tblootwar where name = :name ")
                 .param("name", nameDefense)
-                .query(EntityLootWar.class)
+                .query(VoLootWar.class)
                 .optional();
     }
 
-    public void updateLootWinner(EntityLootWar entityLootWar, String winner) {
+    public void updateLootWinner(VoLootWar voLootWar, String winner) {
         String table = "tblootwar";
         jdbcClient.sql("UPDATE " + table + " SET " +
                         "jewelOfSoul = jewelOfSoul + 1, " +
@@ -37,21 +36,21 @@ public class LootWarDao {
                         "ore = ore + :ore " +
                         "WHERE name = :name ")
                 .param("name", winner)
-                .param("jewelOfSoul", entityLootWar.getJewelOfSoul())
-                .param("jewelOfBless", entityLootWar.getJewelOfBless())
-                .param("gold", entityLootWar.getGold())
-                .param("silver", entityLootWar.getSilver())
-                .param("bronze", entityLootWar.getBronze())
-                .param("wood", entityLootWar.getWood())
-                .param("stone", entityLootWar.getStone())
-                .param("iron", entityLootWar.getIron())
-                .param("metal", entityLootWar.getMetal())
-                .param("ore", entityLootWar.getOre())
+                .param("jewelOfSoul", voLootWar.getJewelOfSoul())
+                .param("jewelOfBless", voLootWar.getJewelOfBless())
+                .param("gold", voLootWar.getGold())
+                .param("silver", voLootWar.getSilver())
+                .param("bronze", voLootWar.getBronze())
+                .param("wood", voLootWar.getWood())
+                .param("stone", voLootWar.getStone())
+                .param("iron", voLootWar.getIron())
+                .param("metal", voLootWar.getMetal())
+                .param("ore", voLootWar.getOre())
                 .update();
     }
 
 
-    public void updateLootLoserAndSubInQuery(EntityLootWar entityLootWar, String loser) {
+    public void updateLootLoserAndSubInQuery(VoLootWar voLootWar, String loser) {
 
         String table = "tblootwar";
         jdbcClient.sql("UPDATE " + table + " SET " +
@@ -65,14 +64,14 @@ public class LootWarDao {
                         "ore = ore - :ore " +
                         "WHERE name = :name ")
                 .param("name", loser)
-                .param("gold", entityLootWar.getGold())
-                .param("silver", entityLootWar.getSilver())
-                .param("bronze", entityLootWar.getBronze())
-                .param("wood", entityLootWar.getWood())
-                .param("stone", entityLootWar.getStone())
-                .param("iron", entityLootWar.getIron())
-                .param("metal", entityLootWar.getMetal())
-                .param("ore", entityLootWar.getOre())
+                .param("gold", voLootWar.getGold())
+                .param("silver", voLootWar.getSilver())
+                .param("bronze", voLootWar.getBronze())
+                .param("wood", voLootWar.getWood())
+                .param("stone", voLootWar.getStone())
+                .param("iron", voLootWar.getIron())
+                .param("metal", voLootWar.getMetal())
+                .param("ore", voLootWar.getOre())
                 .update();
 
     }

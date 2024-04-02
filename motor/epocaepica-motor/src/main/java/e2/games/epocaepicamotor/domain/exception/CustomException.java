@@ -1,4 +1,4 @@
-package e2.games.epocaepicamotor.exception;
+package e2.games.epocaepicamotor.domain.exception;
 
 public class CustomException extends RuntimeException {
 
