@@ -1,12 +1,14 @@
 .dashborddad {
   display: flex;
-  flex-wrap: wrap; /* Isso permite que os elementos quebrem para a próxima linha */
+  margin: 10px auto;
+  padding: 20px;
 }
 
 
 .dashboard {
-  width: 800px;
-  margin: 50px auto;
+  width: 700px;
+  height: 680px;
+  margin: 10px auto;
   border: 2px solid #333;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
@@ -89,9 +91,9 @@
   color: #fff; /* Cor do texto branca ou clara para contraste */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adapte a sombra conforme necessário */
   display: flex; /* Exibir itens em linha */
-  justify-content: space-around; /* Distribuir os botões uniformemente */
-  padding: 8px 16px; /* Adicionar um pouco de espaço interno */
-  border-radius: 8px; /* Adicionar bordas arredondadas */
+  justify-content: end; /* Distribuir os botões uniformemente */
+  padding: 8px 100px; /* Adicionar um pouco de espaço interno */
+  border-radius: 0px; /* Adicionar bordas arredondadas */
 }
 
 .toolbarButton {

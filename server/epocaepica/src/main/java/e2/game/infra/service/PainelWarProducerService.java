@@ -1,7 +1,7 @@
-package e2.game.service;
+package e2.game.infra.service;
 
-import e2.game.dao.IPainelWarProducer;
-import e2.game.entity.PainelWarProducer;
+import e2.game.infra.dao.IPainelWarProducer;
+import e2.game.domain.painelwar.PainelWarProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

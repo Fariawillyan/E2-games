@@ -1,4 +1,4 @@
-package e2.game.configs;
+package e2.game.application.configs;
 
 import jakarta.annotation.PostConstruct;
 import org.springframework.amqp.core.AmqpAdmin;

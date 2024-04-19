@@ -1,10 +1,10 @@
-package e2.game.controller;
+package e2.game.application.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import e2.game.entity.PainelWarProducer;
-import e2.game.exception.CustomException;
-import e2.game.service.PainelWarProducerService;
+import e2.game.domain.painelwar.PainelWarProducer;
+import e2.game.application.exception.CustomException;
+import e2.game.infra.service.PainelWarProducerService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.amqp.AmqpException;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;

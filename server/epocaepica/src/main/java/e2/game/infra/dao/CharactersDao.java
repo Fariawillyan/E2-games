@@ -1,7 +1,7 @@
-package e2.game.dao;
+package e2.game.infra.dao;
 
 
-import e2.game.entity.Characters;
+import e2.game.domain.Characters;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;

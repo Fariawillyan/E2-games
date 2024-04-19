@@ -1,7 +1,7 @@
-package e2.game.service;
+package e2.game.infra.service;
 
-import e2.game.dao.CharactersDao;
-import e2.game.entity.Characters;
+import e2.game.infra.dao.CharactersDao;
+import e2.game.domain.Characters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

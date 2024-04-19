@@ -1,13 +1,10 @@
-package e2.game.dao.impl;
+package e2.game.infra.dao.impl;
 
-import e2.game.dao.IPainelWarProducer;
-import e2.game.entity.Characters;
-import e2.game.entity.PainelWarProducer;
+import e2.game.infra.dao.IPainelWarProducer;
+import e2.game.domain.painelwar.PainelWarProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 @Component
 public class PainelWarProducerDaoImpl implements IPainelWarProducer {

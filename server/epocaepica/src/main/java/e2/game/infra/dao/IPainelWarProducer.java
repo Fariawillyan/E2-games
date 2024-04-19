@@ -1,6 +1,6 @@
-package e2.game.dao;
+package e2.game.infra.dao;
 
-import e2.game.entity.PainelWarProducer;
+import e2.game.domain.painelwar.PainelWarProducer;
 import org.springframework.stereotype.Repository;
 
 @Repository

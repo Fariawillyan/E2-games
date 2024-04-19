@@ -1,4 +1,4 @@
-package e2.game.exception;
+package e2.game.application.exception;
 
 public class CustomException extends RuntimeException {
 

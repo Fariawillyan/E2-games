@@ -1,11 +1,11 @@
-package e2.game.controller;
+package e2.game.application.controller;
 
-import e2.game.entity.Characters;
-import e2.game.exception.CustomException;
-import e2.game.service.CharactersService;
-import e2.game.service.ICharactersService;
-import e2.game.service.impl.HumanServiceImpl;
-import e2.game.service.impl.ZombieServiceImpl;
+import e2.game.domain.Characters;
+import e2.game.application.exception.CustomException;
+import e2.game.infra.service.CharactersService;
+import e2.game.infra.service.ICharactersService;
+import e2.game.infra.service.impl.HumanServiceImpl;
+import e2.game.infra.service.impl.ZombieServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

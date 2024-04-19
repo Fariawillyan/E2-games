@@ -1,6 +1,6 @@
-package e2.game.service.impl;
+package e2.game.infra.service.impl;
 
-import e2.game.service.ICharactersService;
+import e2.game.infra.service.ICharactersService;
 
 public class ZombieServiceImpl implements ICharactersService {
     @Override
